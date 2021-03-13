@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="com.squareup.okhttp3:okcurl:3.0.0-RC1" type="repository">
+    <properties maven-id="com.squareup.okhttp3:okcurl:3.0.0-RC1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okcurl/3.0.0-RC1/okcurl-3.0.0-RC1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.0.0-RC1/okhttp-3.0.0-RC1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.50/bcprov-jdk15on-1.50.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/io/airlift/airline/0.6/airline-0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/16.0/guava-16.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
