@@ -6,6 +6,7 @@ here is types of sending and receiving data from server:
 | **GET**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
 | **Put**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
 | **Delete**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
+
 These are simple ways to sending and receiving data. but we have some sample for each module to use it easier:
 
 - **Auth**
