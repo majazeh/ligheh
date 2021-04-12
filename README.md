@@ -1,77 +1,77 @@
 This is Document and how to use from Ligheh java engine.
 here is types of sending and receiving data from server:
-| Methods | Inputs | Output |
+| Methods | arguments| return|
 | :---: | :---: | :---: |
-| **Post**| Hashmap<String,Object>,Hashmap<String,Object>,Class | Class |
-| **GET**| Hashmap<String,Object>,Hashmap<String,Object>,Class | Class |
-| **Put**| Hashmap<String,Object>,Hashmap<String,Object>,Class | Class |
-| **Delete**| Hashmap<String,Object>,Hashmap<String,Object>,Class | Class |
-
+| **Post**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
+| **GET**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
+| **Put**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
+| **Delete**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>```, aclass ```Class``` | Class |
 These are simple ways to sending and receiving data. but we have some sample for each module to use it easier:
+
 - **Auth**
 
-| Methods | Inputs | Output |
+| Methods | arguments| return|
 | :---: | :---: | :---: |
-| **auth**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **auth_theory**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **me**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **editProfile**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **editPassword**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **register**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **verification**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **recovery**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel |
-| **logout**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel|
-| **changeAvatar**| Hashmap<String,Object>,Hashmap<String,Object> | AuthModel|
+| **auth**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **auth_theory**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **me**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **editProfile**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **editPassword**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **register**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **verification**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **recovery**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel |
+| **logout**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel|
+| **changeAvatar**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | AuthModel|
 
 - **Sample**
 
-| Methods | Inputs | Output |
+| Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Hashmap<String,Object>,Hashmap<String,Object> | list |
-| **listInstance**| Hashmap<String,Object>,Hashmap<String,Object> | list |
-| **bulkList**| Hashmap<String,Object>,Hashmap<String,Object> | list |
-| **show**| Hashmap<String,Object>,Hashmap<String,Object> | SampleModel |
-| **bulkShow**| Hashmap<String,Object>,Hashmap<String,Object> | SampleModel |
-| **score**| Hashmap<String,Object>,Hashmap<String,Object> | SampleModel |
-| **getScore**| Hashmap<String,Object>,Hashmap<String,Object> | SampleModel |
-| **create**| Hashmap<String,Object>,Hashmap<String,Object> | SampleModel |
-| **close**| Hashmap<String,Object>,Hashmap<String,Object> | null |
-| **items**| Hashmap<String,Object>,Hashmap<String,Object> | null |
-| **theory**| Hashmap<String,Object>,Hashmap<String,Object> | null |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **listInstance**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **bulkList**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
+| **bulkShow**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
+| **score**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
+| **getScore**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
+| **create**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
+| **close**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
+| **items**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
+| **theory**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
 
 - **Center**
 
-| Methods | Inputs | Output |
+| Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Hashmap<String,Object>,Hashmap<String,Object> | list |
-| **show**| Hashmap<String,Object>,Hashmap<String,Object> | CenterModel|
-| **users**| Hashmap<String,Object>,Hashmap<String,Object> |  list |
-| **createUser**| Hashmap<String,Object>,Hashmap<String,Object> | null |
-| **user**| Hashmap<String,Object>,Hashmap<String,Object> | UserModel |
-| **editUser**| Hashmap<String,Object>,Hashmap<String,Object> | null|
-| **create**| Hashmap<String,Object>,Hashmap<String,Object> | CenterModel |
-| **edit**| Hashmap<String,Object>,Hashmap<String,Object> | CenterModel |
-| **theory**| Hashmap<String,Object>,Hashmap<String,Object> | null |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | CenterModel|
+| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` |  list |
+| **createUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
+| **user**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | UserModel |
+| **editUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null|
+| **create**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | CenterModel |
+| **edit**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | CenterModel |
+| **theory**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
 
 - **Room**
 
-| Methods | Inputs | Output |
+| Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Hashmap<String,Object>,Hashmap<String,Object> | list |
-| **show**| Hashmap<String,Object>,Hashmap<String,Object> | RoomModel |
-| **users**| Hashmap<String,Object>,Hashmap<String,Object> |  list |
-| **createUser**| Hashmap<String,Object>,Hashmap<String,Object> | null |
-| **user**| Hashmap<String,Object>,Hashmap<String,Object> | UserModel |
-| **editUser**| Hashmap<String,Object>,Hashmap<String,Object> | null|
-| **create**| Hashmap<String,Object>,Hashmap<String,Object> | RoomModel |
-| **edit**| Hashmap<String,Object>,Hashmap<String,Object> | RoomModel |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | RoomModel |
+| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` |  list |
+| **createUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
+| **user**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | UserModel |
+| **editUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null|
+| **create**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | RoomModel |
+| **edit**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | RoomModel |
 
 - **Case**
 
-| Methods | Inputs | Output |
+| Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Hashmap<String,Object>,Hashmap<String,Object> | list |
-| **show**| Hashmap<String,Object>,Hashmap<String,Object> | CaseModel |
-| **users**| Hashmap<String,Object>,Hashmap<String,Object> | UserModel |
-| **addClient**| Hashmap<String,Object>,Hashmap<String,Object> | null |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | CaseModel |
+| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | UserModel |
+| **addClient**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
 
