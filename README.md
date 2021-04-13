@@ -28,9 +28,9 @@ These are simple ways to sending and receiving data. but we have some sample for
 
 | Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
-| **listInstance**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
-| **bulkList**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
+| **listInstance**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
+| **bulkList**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
 | **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
 | **bulkShow**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
 | **score**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | SampleModel |
@@ -44,9 +44,9 @@ These are simple ways to sending and receiving data. but we have some sample for
 
 | Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
 | **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | CenterModel|
-| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` |  list |
+| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` |  List |
 | **createUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
 | **user**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | UserModel |
 | **editUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null|
@@ -58,9 +58,9 @@ These are simple ways to sending and receiving data. but we have some sample for
 
 | Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
 | **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | RoomModel |
-| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` |  list |
+| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` |  List |
 | **createUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
 | **user**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | UserModel |
 | **editUser**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null|
@@ -71,8 +71,20 @@ These are simple ways to sending and receiving data. but we have some sample for
 
 | Methods | arguments| return|
 | :---: | :---: | :---: |
-| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | list |
+| **list**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
 | **show**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | CaseModel |
-| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | UserModel |
+| **users**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | List |
 | **addClient**| Data ```Hashmap<String, Object>```, Header ```Hashmap<String, Object>``` | null |
 
+When we want to use Ligheh to Android Project we need to add some codes to out onCreate method of App.class. we need a class called like this ```Exceptioner.External = ExtendOnFailureException.class``` and we have to extend to ```onFailureException``` class. this class need a contractor with an arguments object ```Object``` and call super method with object. we have 3 method for out exceptions:
+
+- onValidation(```object``` HashMap<String, Object>)
+- - occur when we have exception in validation of user.
+- onClient(```object``` Object)
+- - occur when we have exception in app and connected to client.
+- onServerFail(```object``` Object)
+- - occur when we receive error from server after sending request.
+
+If these methods called we dont arrive to ```onOk``` methods of ```Response``` class after sending request.
+
+If we want to do something before and after sending request to server we need to call a class in onCreate method of App.class like this: ```APIRequest.ExternalAPIEvents = ExtendEvent.class``` and then call contractor with arguments of super class and override ```onResponsed``` method for receiving data from server.
