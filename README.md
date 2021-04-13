@@ -80,8 +80,10 @@ When we want to use Ligheh to Android Project we need to add some codes to out o
 
 - onValidation(```object``` HashMap<String, Object>)
 - - occur when we have exception in validation of user.
+Mostly it occur when client want to login or register to system.
 - onClient(```object``` Object)
 - - occur when we have exception in app and connected to client.
+Mostly occur when we cant connect to internet or have invalid value or ... .
 - onServerFail(```object``` Object)
 - - occur when we receive error from server after sending request.
 
