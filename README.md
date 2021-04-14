@@ -79,13 +79,13 @@ These are simple ways to sending and receiving data. but we have some sample for
 When we want to use Ligheh to Android Project we need to add some codes to out onCreate method of App.class. we need a class called like this ```Exceptioner.External = ExtendOnFailureException.class``` and we have to extend to ```onFailureException``` class. this class need a contractor with an arguments object ```Object``` and call super method with object. we have 3 method for out exceptions:
 
 - onValidation(```object``` HashMap<String, Object>)
-- - occur when we have exception in validation of user.
+ - occur when we have exception in validation of user.
 Mostly it occur when client want to login or register to system.
 - onClient(```object``` Object)
-- - occur when we have exception in app and connected to client.
+ - occur when we have exception in app and connected to client.
 Mostly occur when we cant connect to internet or have invalid value or ... .
 - onServerFail(```object``` Object)
-- - occur when we receive error from server after sending request.
+ - occur when we receive error from server after sending request.
 
 If these methods called we dont arrive to ```onOk``` methods of ```Response``` class after sending request.
 
