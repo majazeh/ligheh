@@ -15,11 +15,11 @@ public class ExtendAPIEvents extends APIEvents{
     }
 
     @Override
-    void onResponsed(Response callback, Object response, Class aClass) {
+    <T> void onResponsed(Response callback, Object response, T t) {
         if (response.getClass().getTypeName().equals("okhttp3.Response")) {
             try {
                 JSONObject object = new JSONObject(((okhttp3.Response) response).body().string());
-                Res res = new Res(object, aClass);
+                Res res = new Res(object, t);
                 callback.onOK(res.Build());
             } catch (IOException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
                 e.printStackTrace();

@@ -2,49 +2,51 @@ package Model;
 
 import API.*;
 import Model.TypeModel.TypeModel;
-import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
-import java.util.Iterator;
 
-public class Model {
+public class Model<T> {
+    public T t;
     public TypeModel data;
 
+    public Model(T t) {
+            this.t = t;
+    }
 
-
-    public static void changeBaseUrl(String newBaseUrl) {
+    public void changeBaseUrl(String newBaseUrl) {
         APIRequest.baseUrl = newBaseUrl;
     }
 
-    public static void show(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response response, Class aClass) throws IOException {
-        if (data.containsKey("id")) {
-            String id = (String) data.get("id");
-            data.remove("id");
-            APIRequest.get(endpoint + "/" + id, setData(data), setHeader(header), response, aClass);
-        } else {
-            Exceptioner.make("آیدی را وارد کنید");
-        }
+    public void show(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response<T> response) throws IOException {
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.get(endpoint, setData(data), setHeader(header), response, t);
     }
 
-    public static void list(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response response, Class aClass) throws IOException {
-        APIRequest.get(endpoint, setData(data), setHeader(header), response, aClass);
+    public  void list(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header,  Response<T> response) throws IOException {
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.get(endpoint, setData(data), setHeader(header), response, t);
     }
 
-    public static void create(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response response, Class aClass) throws IOException {
-        APIRequest.post(endpoint, setData(data), setHeader(header), response, aClass);
+    public  void create(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header,  Response<T> response) throws IOException {
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.post(endpoint, setData(data), setHeader(header), response, t);
     }
 
-    public static void delete(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response response, Class aClass) throws IOException {
-        APIRequest.delete(endpoint, setData(data), setHeader(header), response, aClass);
+    public  void delete(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header,  Response<T> response) throws IOException {
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.delete(endpoint, setData(data), setHeader(header), response, t);
     }
 
-    public static void update(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response response, Class aClass) throws IOException {
-        APIRequest.update(endpoint, setData(data), setHeader(header), response, aClass);
+    public  void update(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header,  Response<T> response) throws IOException {
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.update(endpoint, setData(data), setHeader(header), response, t);
     }
 
-    public static void post(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header, Response response, Class aClass) throws IOException {
-        APIRequest.post(endpoint, setData(data), setHeader(header), response, aClass);
+    public  void post(String endpoint, HashMap<String, Object> data, HashMap<String, Object> header,  Response<T> response) throws IOException {
+        APIRequest apiRequest = new APIRequest();
+        apiRequest.post(endpoint, setData(data), setHeader(header), response, t);
     }
 
     public static RequestData setData(HashMap<String, Object> data) {

@@ -43,7 +43,6 @@ public class List {
     }
 
     public void add(Model model) {
-        index.add(model.data.getId());
         models.add(model);
     }
 

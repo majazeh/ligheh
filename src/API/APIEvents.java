@@ -11,11 +11,14 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 public abstract class APIEvents {
-    public APIEvents(API.Response callback, Class aClass, OkHttpClient client, Request request) {
+    public <T> APIEvents(API.Response callback, T t, OkHttpClient client, Request request) {
 
     }
 
-    public void request(API.Response callback, Class aClass, OkHttpClient client, Request request) {
+    public APIEvents() {
+    }
+
+    public <T> void request(API.Response callback, T t, OkHttpClient client, Request request) {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
@@ -26,7 +29,7 @@ public abstract class APIEvents {
             public void onResponse(okhttp3.Response response) {
                 try {
                     if (response.isSuccessful()) {
-                        onResponsed(callback, response, aClass);
+                        onResponsed(callback, response, t);
                     } else {
                         Exceptioner.make(response);
                     }
@@ -38,5 +41,5 @@ public abstract class APIEvents {
         });
     }
 
-    abstract void onResponsed(API.Response callback, Object response, Class aClass);
+    abstract <T> void onResponsed(API.Response callback, Object response, T aClass);
 }

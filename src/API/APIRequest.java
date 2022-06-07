@@ -16,12 +16,17 @@ import java.util.concurrent.TimeUnit;
 
 public class APIRequest extends APIEvents {
     public static Class ExternalAPIEvents;
-    public static String baseUrl = "https://bapi.risloo.ir/api/";
-    public APIRequest(API.Response callback, Class aClass, OkHttpClient client,Request request) {
-        super(callback, aClass, client, request);
-        request(callback, aClass, client, request);
+    public static String baseUrl = "";
+    public <T> APIRequest(API.Response callback, T t, OkHttpClient client, Request request) {
+        super(callback, t, client, request);
+        request(callback, t, client, request);
     }
-    static void exec(String endpoint, String method, RequestData data, RequestHeader headers, API.Response callback, Class aClass) throws IOException {
+
+    public APIRequest() {
+        super();
+    }
+
+    <T> void exec(String endpoint, String method, RequestData data, RequestHeader headers, API.Response callback, T t) throws IOException {
         Request.Builder builder = new Request.Builder();
         String url = baseUrl + endpoint;
 
@@ -46,39 +51,39 @@ public class APIRequest extends APIEvents {
         System.out.println(request.url());
         if (APIRequest.ExternalAPIEvents!=null){
             try {
-                APIRequest.ExternalAPIEvents.getDeclaredConstructor(API.Response.class,Class.class,OkHttpClient.class,Request.class).newInstance(callback,aClass,client,request);
+                APIRequest.ExternalAPIEvents.getDeclaredConstructor(API.Response.class,Class.class,OkHttpClient.class,Request.class).newInstance(callback,t,client,request);
 
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 e.printStackTrace();
             }
         }else {
-            new APIRequest(callback,aClass,client,request);
+            new APIRequest(callback,t,client,request);
         }
 
     }
 
-    public static void get(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, Class aClass) throws IOException {
-        exec(endpoint, "GET", data, header, response, aClass);
+    public <T> void get(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, T t) throws IOException {
+        exec(endpoint, "GET", data, header, response, t);
     }
 
-    public static void post(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, Class aClass) throws IOException {
-        exec(endpoint, "POST", data, header, response, aClass);
+    public  <T> void post(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, T t) throws IOException {
+        exec(endpoint, "POST", data, header, response, t);
     }
 
-    public static void delete(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, Class aClass) throws IOException {
-        exec(endpoint, "DELETE", data, header, response, aClass);
+    public  <T> void delete(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, T t) throws IOException {
+        exec(endpoint, "DELETE", data, header, response, t);
     }
 
-    public static void update(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, Class aClass) throws IOException {
-        exec(endpoint, "PUT", data, header, response, aClass);
+    public  <T> void update(String endpoint, @Nullable RequestData data, RequestHeader header, API.Response response, T t) throws IOException {
+        exec(endpoint, "PUT", data, header, response, t);
     }
 
     @Override
-    void onResponsed(API.Response callback,Object response,Class aClass) {
+    <T> void onResponsed(API.Response callback, Object response, T t) {
         if (response.getClass().getTypeName().equals("okhttp3.Response")) {
             try {
                 JSONObject object = new JSONObject(((Response) response).body().string());
-                Res res = new Res(object, aClass);
+                Res<T> res = new Res(object, t);
                 callback.onOK(res.Build());
             } catch (IOException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
                 e.printStackTrace();
@@ -87,4 +92,5 @@ public class APIRequest extends APIEvents {
             System.out.println(response);
         }
     }
+
 }
